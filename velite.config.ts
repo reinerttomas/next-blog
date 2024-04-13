@@ -1,12 +1,12 @@
-import { defineConfig, defineCollection, s } from "velite";
+import { defineConfig, defineCollection, s } from 'velite';
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
-  slugAsParams: data.slug.split("/").slice(1).join("/"),
+  slugAsParams: data.slug.split('/').slice(1).join('/'),
 });
 
 const posts = defineCollection({
-  name: "Post",
-  pattern: "blog/**/*.md",
+  name: 'Post',
+  pattern: 'blog/**/*.md',
   schema: s
     .object({
       title: s.string().max(99),
@@ -20,12 +20,12 @@ const posts = defineCollection({
 });
 
 export default defineConfig({
-  root: "content",
+  root: 'content',
   output: {
-    data: ".velite",
-    assets: "public/static",
-    base: "/static/",
-    name: "[name]-[hash:6].[ext]",
+    data: '.velite',
+    assets: 'public/static',
+    base: '/static/',
+    name: '[name]-[hash:6].[ext]',
     clean: true,
   },
   collections: { posts },
