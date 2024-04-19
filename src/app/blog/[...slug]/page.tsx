@@ -3,6 +3,8 @@ import { MDXContent } from '@/components/mdx-components';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
+import '@/app/mdx.css';
+
 interface PostPageProps {
   params: {
     slug: string[];
@@ -30,7 +32,7 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <article className='prose dark:prose-invert container max-w-3xl py-6'>
+    <article className='container prose max-w-3xl py-6 dark:prose-invert'>
       <h1 className='mb-2'>{post.title}</h1>
       {post.description ? (
         <p className='text-xl text-muted-foreground'>{post.description}</p>
