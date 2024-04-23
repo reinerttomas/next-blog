@@ -6,6 +6,7 @@ import React from 'react';
 import '@/app/mdx.css';
 import { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
+import { Tag } from '@/components/tag';
 
 interface PostPageProps {
   params: {
@@ -73,6 +74,9 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <article className='container prose max-w-3xl py-6 dark:prose-invert'>
       <h1 className='mb-2'>{post.title}</h1>
+      <div className='mb-2 flex gap-2'>
+        {post.tags?.map((tag) => <Tag tag={tag} key={tag} />)}
+      </div>
       {post.description ? (
         <p className='text-xl text-muted-foreground'>{post.description}</p>
       ) : null}
