@@ -23,7 +23,7 @@ export function PostItem({
   return (
     <article className='flex flex-col gap-2 border-b border-border py-3'>
       <h2 className='text-2xl font-bold'>
-        <Link href={slug}>{title}</Link>
+        <Link href={'/' + slug}>{title}</Link>
       </h2>
       <div className='flex gap-2'>
         {tags?.map((tag) => <Tag tag={tag} key={tag} />)}
